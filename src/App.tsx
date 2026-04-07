@@ -95,7 +95,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-6xl md:text-8xl font-bold tracking-tight mb-6 text-gradient"
         >
-          Fahad Raza Gopang
+          Fahad Raza
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -400,6 +400,24 @@ const Contact = () => {
                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-apple-blue transition-colors duration-300 resize-none"
               />
             </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-white/60 px-1">Attach File (Local Preview)</label>
+              <div className="relative group">
+                <input 
+                  type="file" 
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const url = URL.createObjectURL(file);
+                      // In a real app, you'd store this in state
+                      console.log("File selected:", file.name);
+                    }
+                  }}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-apple-blue transition-colors duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-apple-blue/10 file:text-apple-blue hover:file:bg-apple-blue/20 cursor-pointer"
+                />
+              </div>
+              <p className="text-[10px] text-white/30 px-1 italic">Files are processed locally in your browser for privacy and speed.</p>
+            </div>
             <button 
               type="submit"
               disabled={isSubmitting}
@@ -420,7 +438,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
       <div className="text-2xl font-bold tracking-tighter">FKG</div>
       <div className="text-white/40 text-sm">
-        © {new Date().getFullYear()} Fahad Raza Gopang. All rights reserved.
+        © {new Date().getFullYear()} Fahad Raza. All rights reserved.
       </div>
       <div className="flex space-x-6 text-white/40 text-sm">
         <a href="#" className="hover:text-white transition-colors duration-300">Privacy</a>
